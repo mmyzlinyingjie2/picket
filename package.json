@@ -1,0 +1,8 @@
+{
+  "name": "photo-format-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "本地运行的证件照尺寸与格式转换工具",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" }
+}

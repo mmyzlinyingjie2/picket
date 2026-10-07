@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#f6f7f9"><title>证件照转换工作台</title><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="topbar"><a class="brand" href="/"><span class="brand-mark">像</span><span>照相间 <small>PHOTO STUDIO</small></span></a><span class="privacy"><i></i>照片仅在本机处理，不会上传</span></header>
+  <main>
+    <section class="intro"><div class="eyebrow">简单 · 安全 · 即时</div><h1>让每张照片，<em>都符合规格。</em></h1><p>上传照片，调整裁切，导出为所需尺寸和格式。</p></section>
+    <section class="workspace">
+      <div class="editor card">
+        <div class="section-heading"><span class="step">01</span><div><h2>上传并调整照片</h2><p>支持 JPG、PNG、WebP，最大 20 MB</p></div></div>
+        <label class="upload" id="dropzone" for="fileInput"><input id="fileInput" type="file" accept="image/jpeg,image/png,image/webp"><span class="upload-icon">↑</span><strong>点击选择照片，或拖放到这里</strong><small>建议使用正面、光线均匀的清晰照片</small></label>
+        <div class="preview-wrap hidden" id="previewWrap"><div class="preview-head"><span>裁切预览</span><button class="text-button" id="replaceBtn">更换照片</button></div><div class="preview-stage" id="previewStage"><canvas id="previewCanvas"></canvas><div class="empty-preview" id="emptyPreview">上传照片后在此预览</div></div><div class="slider-row"><span>缩放</span><input id="zoom" type="range" min="1" max="2.5" step="0.01" value="1"><button id="centerBtn" class="icon-button" title="居中照片">⌖</button></div><small class="hint">拖动照片调整位置。裁切框比例由右侧规格决定。</small></div>
+      </div>
+      <aside class="settings card">
+        <div class="section-heading"><span class="step">02</span><div><h2>设置输出规格</h2><p>选择预设，或自定义像素尺寸</p></div></div>
+        <label class="field-label" for="preset">证件照规格</label><select id="preset"><option value="custom">自定义尺寸</option><option value="id">居民身份证（358 × 441 px）</option><option value="hk">港澳通行证（33 × 48 mm）</option><option value="social">社会保障卡（358 × 441 px）</option><option value="oneinch">一寸照（25 × 35 mm）</option><option value="twoinch">二寸照（35 × 49 mm）</option></select>
+        <div class="field-label dimension-label">输出尺寸 <span id="unitLabel">像素</span></div><div class="dimension-row"><label><span>宽</span><input id="width" type="number" min="1" max="6000" value="358"></label><b>×</b><label><span>高</span><input id="height" type="number" min="1" max="6000" value="441"></label><select id="unit" aria-label="尺寸单位"><option value="px">px</option><option value="mm">mm</option></select></div>
+        <div class="two-fields"><label><span class="field-label">毫米换算分辨率</span><div class="input-suffix"><input id="dpi" type="number" min="72" max="1200" value="350"><span>DPI</span></div></label><label><span class="field-label">透明区域底色</span><select id="bg"><option value="#ffffff">白色</option><option value="#4387c9">蓝色</option><option value="#e9dfc7">红色</option><option value="transparent">透明</option></select></label></div>
+        <label class="field-label" for="format">导出格式</label><select id="format"><option value="image/jpeg">JPG</option><option value="image/png">PNG</option><option value="image/webp">WebP</option></select>
+        <div class="quality-row" id="qualityRow"><label for="quality">图像质量</label><input id="quality" type="range" min="0.5" max="1" step="0.01" value="0.92"><span id="qualityValue">92%</span></div>
+        <div class="spec-note" id="specNote">身份证与社保卡常见电子照片规格为 358 × 441 像素。请以当地受理机构要求为准。</div>
+        <button class="export-button" id="exportBtn" disabled><span>↓</span> 导出照片</button><div class="status" id="status">导出文件将在浏览器中生成</div>
+      </aside>
+    </section>
+    <footer><span>照片处理在浏览器本地完成</span><span>规格可能因地区和办理渠道而异，请以受理机构要求为准</span></footer>
+  </main><script src="/app.js"></script>
+</body></html>
